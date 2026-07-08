@@ -19,6 +19,8 @@ OUTPUT_FILE = "run_output.md"
 memory = InMemorySaver()
 app.checkpointer = memory
 
+# memory saver will store the state of the graph in memory, allowing you to resume the graph execution later if needed. This is useful for testing and debugging purposes.  
+
 
 def log(lines: list[str], text: str):
     """Print to terminal AND collect the line for the markdown file."""
