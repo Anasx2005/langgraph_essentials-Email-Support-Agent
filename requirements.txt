@@ -2,3 +2,5 @@ langgraph
 langchain-google-genai
 python-dotenv
 langsmith
+langgraph-cli
+langgraph-cli[inmem]

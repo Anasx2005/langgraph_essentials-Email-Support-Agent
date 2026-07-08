@@ -7,10 +7,17 @@ from langgraph.types import Command
 
 from my_agent.agent import app
 
+from langgraph.checkpoint.memory import InMemorySaver
+from my_agent.agent import app
+
+
 # Load environment variables (GOOGLE_API_KEY) from .env
 load_dotenv()
 
 OUTPUT_FILE = "run_output.md"
+
+memory = InMemorySaver()
+app.checkpointer = memory
 
 
 def log(lines: list[str], text: str):

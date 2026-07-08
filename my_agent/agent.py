@@ -1,8 +1,6 @@
 """Graph construction for the email agent."""
 
 from langgraph.graph import END, START, StateGraph
-from langgraph.checkpoint.memory import InMemorySaver
-
 from my_agent.utils.state import EmailAgentState
 from my_agent.utils.nodes import (
     read_email,
@@ -35,6 +33,4 @@ builder.add_edge("search_documentation", "write_response")
 builder.add_edge("bug_tracking", "write_response")
 builder.add_edge("send_reply", END)
 
-# Compile with a checkpointer for persistence (needed for interrupt/resume)
-memory = InMemorySaver()
-app = builder.compile(checkpointer=memory)
+app = builder.compile()
